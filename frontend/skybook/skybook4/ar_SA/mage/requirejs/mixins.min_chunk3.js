@@ -1,0 +1,2 @@
+ar path=getPath(name,config),mixins=this.getMixins(path),deps=[name].concat(mixins);req(deps,function(){onLoad(applyMixins.apply(null,arguments));});},getMixins:function(path){var config=module.config()||{},mixins;if(path.indexOf('?')!==-1){path=path.substring(0,path.indexOf('?'));}
+mixins=config[path]||{};return Object.keys(mixins).filter(function(mixin){return mixins[mixin]!==false;});},hasMixins:function(path){return this.getMixins(path).length;},processNames:function(names,context){var config=context.config;function processName(name){var path=getPath(
