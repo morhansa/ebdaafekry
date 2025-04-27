@@ -1,0 +1,2 @@
+ire=function(deps,callback,errback){deps=processNames(deps,defContext);return originalContextRequire(deps,callback,errback);};defContext.configure=function(cfg){originalContextConfigure(cfg);unbundledContext.configure(cfg);};Object.keys(originalContextRequire).forEach(function(key){defContext.require[key]=originalContextRequire[key];});defContext.defQueue.shift=function(){var queueItem=Array.prototype.shift.call(this),lastDeps=queueItem&&queueItem[1];if(Array.isArray(lastDeps)){queueItem[1]=processNames(queueItem[1],defContext);}
+return queueItem;};});
